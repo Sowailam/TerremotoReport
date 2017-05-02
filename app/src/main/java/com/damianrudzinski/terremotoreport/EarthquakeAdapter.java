@@ -1,7 +1,6 @@
 package com.damianrudzinski.terremotoreport;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -38,8 +37,11 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         final Earthquake local_earthquake = getItem(position);
 
         magnitude = (TextView) listItemView.findViewById(R.id.magnitude_text_view);
+        magnitude.setText(local_earthquake.getEarthquakeMagnitude().toString());
         city = (TextView) listItemView.findViewById(R.id.city_text_view);
+        city.setText(local_earthquake.getEarthquakeCity());
         date = (TextView) listItemView.findViewById(R.id.date_text_view);
+        date.setText(local_earthquake.getEarthquakeDate().toString());
 
         return listItemView;
     }

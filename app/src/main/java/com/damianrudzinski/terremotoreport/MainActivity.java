@@ -14,14 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Earthquake> earthquakes = new ArrayList<>();
-        earthquakes.add(new Earthquake("San Francisco"));
-        earthquakes.add(new Earthquake("London"));
-        earthquakes.add(new Earthquake("Tokyo"));
-        earthquakes.add(new Earthquake("Mexico City"));
-        earthquakes.add(new Earthquake("Moscow"));
-        earthquakes.add(new Earthquake("Rio de Janeiro"));
-        earthquakes.add(new Earthquake("Paris"));
+        ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
 
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 

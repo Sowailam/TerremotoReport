@@ -6,11 +6,11 @@ package com.damianrudzinski.terremotoreport;
 
 public class Earthquake {
 
-    private Float earthquakeMagnitude;
+    private Double earthquakeMagnitude;
     private String earthquakeCity;
     private Long earthquakeDate;
 
-    public Earthquake(Float mEarthquakeMagnitude, String mEarthquakeCity, Long mEarthquakeDate) {
+    public Earthquake(Double mEarthquakeMagnitude, String mEarthquakeCity, Long mEarthquakeDate) {
         earthquakeMagnitude = mEarthquakeMagnitude;
         earthquakeCity = mEarthquakeCity;
         earthquakeDate = mEarthquakeDate;
@@ -20,7 +20,7 @@ public class Earthquake {
         earthquakeCity = mEarthquakeCity;
     }
 
-    public Float getEarthquakeMagnitude() {
+    public Double getEarthquakeMagnitude() {
         return earthquakeMagnitude;
     }
 

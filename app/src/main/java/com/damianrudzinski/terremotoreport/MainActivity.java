@@ -1,5 +1,6 @@
 package com.damianrudzinski.terremotoreport;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -16,7 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Earthquake> earthquakes = QueryUtils.fetchEarthquakeData(JSON_RESPONSE);
+        EarthquakesAsyncTask task = new EarthquakesAsyncTask();
+        task.execute(JSON_RESPONSE);
+
+    }
+
+    private void updateUi(ArrayList<Earthquake> earthquakes) {
 
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
@@ -25,7 +31,28 @@ public class MainActivity extends AppCompatActivity {
         earthquakeListView.setAdapter(adapter);
     }
 
-    //TO DO: updateUI method, inner AsyncTask class
+    private class EarthquakesAsyncTask extends AsyncTask<String, Void, ArrayList<Earthquake>> {
+
+        @Override
+        protected ArrayList<Earthquake> doInBackground(String... urls) {
+            if (urls.length < 1 || urls == null) {
+                return null;
+            }
+            // Perform the HTTP request for earthquake data and process the response.
+            ArrayList<Earthquake> earthquakes = QueryUtils.fetchEarthquakeData(urls[0]);
+            return earthquakes;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Earthquake> earthquakes) {
+            super.onPostExecute(earthquakes);
+
+            if (earthquakes == null) {
+                return;
+            }
+            updateUi(earthquakes);
+        }
+    }
 }
 
 

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String JSON_RESPONSE = "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
+
     public static final String LOG_TAG = MainActivity.class.getName();
 
     @Override
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
+        ArrayList<Earthquake> earthquakes = QueryUtils.fetchEarthquakeData(JSON_RESPONSE);
 
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
@@ -22,4 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         earthquakeListView.setAdapter(adapter);
     }
+
+    //TO DO: updateUI method, inner AsyncTask class
 }
+
+

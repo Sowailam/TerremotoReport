@@ -1,7 +1,9 @@
 package com.damianrudzinski.terremotoreport;
 
 import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
+// the support library here is incompitable with the classes you are using in the main activity.
+// use this instead
+import android.content.AsyncTaskLoader;
 import java.util.List;
 
 

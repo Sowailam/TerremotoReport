@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
@@ -16,7 +17,7 @@
         android:background="@drawable/magnitude_circle"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="4.2"
+        tools:text="4.2"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
@@ -36,7 +37,7 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
-            android:text="75 km N of"
+            tools:text="75 km N of"
             android:textAllCaps="true"
             android:textColor="@color/textColorEarthquakeDetails"
             android:textSize="12sp" />
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@string/new_york"
+            tools:text="@string/new_york"
             android:textColor="@color/textColorEarthquakeLocation"
             android:textSize="16sp" />
 
@@ -66,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="Feb 2, 2016"
+            tools:text="Feb 2, 2016"
             android:textColor="@color/textColorEarthquakeDetails"
             android:textSize="12sp" />
 
@@ -75,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="9:10 PM"
+            tools:text="9:10 PM"
             android:textColor="@color/textColorEarthquakeDetails"
             android:textSize="12sp" />
     </LinearLayout>

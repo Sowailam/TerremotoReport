@@ -48,7 +48,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         final Earthquake local_earthquake = getItem(position);
 
         magnitudeOfAnEarthquake = (TextView) listItemView.findViewById(R.id.magnitude_text_view);
-        magnitudeOfAnEarthquake.setText(magnitudeFormatter(local_earthquake.getEarthquakeMagnitude(), "0.0"));
+        magnitudeOfAnEarthquake.setText(magnitudeFormatter(local_earthquake.getEarthquakeMagnitude(), "0.#"));
 
         magnitudeCircle = (GradientDrawable) magnitudeOfAnEarthquake.getBackground();
         int magnitudeColor = getMagnitudeColor(local_earthquake.getEarthquakeMagnitude());
@@ -73,7 +73,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         cityOfAnEarthquake.setText(primaryLocation);
 
         dateOfAnEarthquake = (TextView) listItemView.findViewById(R.id.date_text_view);
-        dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        dateFormatter = new SimpleDateFormat("MMM dd, yyyy");
         dateOfAnEarthquake.setText(dateFormatter.format(new Date(local_earthquake.getEarthquakeDate())));
 
         timeOfAnEarthquake = (TextView) listItemView.findViewById(R.id.time_text_view);

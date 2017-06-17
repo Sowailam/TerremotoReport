@@ -59,8 +59,8 @@ public final class QueryUtils {
         } catch (IOException e) {
             Log.e(LOG_TAG, "error", e);
         }
-        return earthquakes = extractEarthquakes(jsonResponse);
-
+        earthquakes = extractEarthquakes(jsonResponse);
+        return earthquakes;
     }
 
     private static String makeHttpRequest(URL url) throws IOException {
